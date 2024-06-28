@@ -1,11 +1,18 @@
 # Personal library of MacOS bash scripts
 
 - ### More scripts will be soon here
-- [Logic Pro and Garageband Library links from external drive](#Logic)
+- [Symlinks for Logic Pro](#Symlinks)
+- [Features](#Features)
 - [Installation](#Installation)
 
 
-## Logic
+## Symlinks
+- Apple loops ``/Library/Application Support/Audio/Apple Loops``
+- Logic Pro ``/Library/Application Support/Logic``
+- GarageBand ``/Library/Application Support/GarageBand``
+
+
+## Features
 - Check if local library folders exists or it's symlinks
 - If folders exists locally, script will remove it and create symlink from your  ``external drive path ``.
 
