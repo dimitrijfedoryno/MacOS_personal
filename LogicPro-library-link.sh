@@ -3,17 +3,19 @@
 # LogicPro_GarageBand-library-link.sh
 # Created by: Dimitrij Fedoryno
 # Date: 2024-06-27
+Volume_Name="DATA"
+echo "--- Using volume name: $Volume_Name"
 
 # Define paths for Logic and GarageBand locally
 LOGIC_DIR="/Library/Application Support/Logic"
 GARAGEBAND_DIR="/Library/Application Support/GarageBand"
 
-# Define paths for Logic and GarageBand on external drive (DATA)
-REMOTE_LOGIC_DIR="/Volumes/DATA/Library/Application Support/Logic"
-REMOTE_GARAGEBAND_DIR="/Volumes/DATA/Library/Application Support/GarageBand"
+# Define paths for Logic and GarageBand on external drive ($Volume_Name)
+REMOTE_LOGIC_DIR="/Volumes/$Volume_Name/Library/Application Support/Logic"
+REMOTE_GARAGEBAND_DIR="/Volumes/$Volume_Name/Library/Application Support/GarageBand"
 
-#Define paths for Apple Loops on external drive (DATA)
-REMOTE_APPLE_LOOPS_DIR="/Volumes/DATA/Library/Audio/Apple\ Loops"
+#Define paths for Apple Loops on external drive ($Volume_Name)
+REMOTE_APPLE_LOOPS_DIR="/Volumes/$Volume_Name/Library/Audio/Apple\ Loops"
 APPLE_LOOPS_DIR="/Library/Audio/Apple\ Loops"
 
 # Logic and GarageBand
@@ -36,10 +38,10 @@ if [[ -d "$LOGIC_DIR" && -d "$GARAGEBAND_DIR" ]]; then
 else
     echo "One or both of the directories do not exist. Creating symlinks."
     
-    # Link Logic folder from external drive "DATA" to internal drive Library folder
+    # Link Logic folder from external drive "$Volume_Name" to internal drive Library folder
     sudo ln -s "$REMOTE_LOGIC_DIR" "$LOGIC_DIR"
 
-    # Link GarageBand folder from external drive "DATA" to internal drive Library folder
+    # Link GarageBand folder from external drive "$Volume_Name" to internal drive Library folder
     sudo ln -s "$REMOTE_GARAGEBAND_DIR" "$GARAGEBAND_DIR"
 fi
 
@@ -62,7 +64,7 @@ if [ -d "$APPLE_LOOPS_DIR" ]; then
 else
     echo "Apple Loops folder does not exist. Directory do not exist. Creating symlinks."
     
-    # Apple Loops folder from external drive "DATA" to internal drive Library/Audio folder
+    # Apple Loops folder from external drive "$Volume_Name" to internal drive Library/Audio folder
     sudo ln -s "$REMOTE_APPLE_LOOPS_DIR" "$APPLE_LOOPS_DIR"
 
 fi
